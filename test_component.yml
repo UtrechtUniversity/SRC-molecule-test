@@ -1,0 +1,11 @@
+---
+- name: Test the SRC molecule configuration
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Create test file
+      copy:
+        dest: "{{ item['file_name'] }}"
+        content: "{{ item['content'] }}"
+      with_items: "{{ test_param }}"

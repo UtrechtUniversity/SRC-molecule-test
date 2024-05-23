@@ -1,0 +1,22 @@
+---
+platforms:
+  - name: workspace-src-ubuntu_jammy
+    image: ghcr.io/utrechtuniversity/src-test-workspace:ubuntu_jammy
+    command: /sbin/init
+    pre_build_image: true
+    registry:
+      url: $DOCKER_REGISTRY
+      credentials:
+        username: $DOCKER_USER
+        password: $DOCKER_PW
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: ../
+    components:
+      - name: test_component
+        path: test_component.yml
+        parameters:
+          test_param:
+            - file_name: my_dict
+              content: foo
