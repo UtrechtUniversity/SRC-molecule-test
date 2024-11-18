@@ -11,6 +11,5 @@
       with_items: "{{ test_param }}"
 
     # To test the community.dns collection
-    - name: Look up A (IPv4) records for example.org
-      ansible.builtin.debug:
-        msg: "{{ query('community.dns.lookup', 'example.org.') }}"
+  roles:
+    - role: uusrc.general.fact_regular_users
