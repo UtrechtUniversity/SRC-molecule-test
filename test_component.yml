@@ -10,8 +10,7 @@
         content: "{{ item['content'] }}"
       with_items: "{{ test_param }}"
 
-    # To test the community.general collection
-    - name: Convert a duration into weeks
+    # To test the community.dns collection
+    - name: Look up A (IPv4) records for example.org
       ansible.builtin.debug:
-        msg: "{{ '1y 7m 5d 30h' | community.general.to_weeks }}"
-  
+        msg: "{{ query('community.dns.lookup', 'example.org.') }}"
