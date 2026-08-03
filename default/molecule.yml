@@ -9,14 +9,3 @@ platforms:
       credentials:
         username: $DOCKER_USER
         password: $DOCKER_PW
-provisioner:
-  name: ansible
-  env:
-    ANSIBLE_ROLES_PATH: ../../
-    components:
-      - name: test_component
-        path: test_component.yml
-        parameters:
-          test_param:
-            - file_name: my_dict
-              content: foo
